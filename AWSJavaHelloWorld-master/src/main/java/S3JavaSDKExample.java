@@ -7,11 +7,9 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.PutObjectResult;
 
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 /**
- * Created by mattua on 06/06/2016.
+ * Created by nelson on 06/06/2016.
  */
 public class S3JavaSDKExample {
 
@@ -36,12 +34,16 @@ public class S3JavaSDKExample {
         // BucketUtils.deleteAllBuckets(s3Client);
 
 
-        String newBucketName = "matt" + System.currentTimeMillis();
+        String newBucketName = "nelson" + System.currentTimeMillis();
 
 
         s3Client.createBucket(newBucketName);
 
-        final String fileName = "sometext.txt";
+        //final String fileName = "sometext.txt";
+        //final String fileName = "English Vinglish.2012.1080p.WEB-DL.AVC.AAC.ESub.DDR.mkv";
+        final String fileName = "100MB.bin";
+        
+        
 
         File file = new File(S3JavaSDKExample.class.getResource(fileName).toURI());
 
@@ -90,7 +92,7 @@ public class S3JavaSDKExample {
 
 
 
-        String newBucketName = "mattua" + System.currentTimeMillis();
+        String newBucketName = "nelson" + System.currentTimeMillis();
         s3Client.createBucket(newBucketName);
 
         String policy = BucketUtils.readFileFromResources("encrypted-folder-policy.txt").replace("bucketname",newBucketName);

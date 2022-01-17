@@ -38,7 +38,6 @@ public class S3JavaSDKExample {
         s3Client.createBucket(newBucketName);
 
         //final String fileName = "sometext.txt";
-        //final String fileName = "English Vinglish.2012.1080p.WEB-DL.AVC.AAC.ESub.DDR.mkv";
         final String fileName = "100MB.bin";
         
         

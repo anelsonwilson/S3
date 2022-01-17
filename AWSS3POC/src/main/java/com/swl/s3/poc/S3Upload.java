@@ -39,7 +39,7 @@ public class S3Upload {
 
 		// BucketUtils.deleteAllBuckets(s3Client);
 
-		newBucketName = "nelson" + System.currentTimeMillis();
+		newBucketName = "swl_" + System.currentTimeMillis();
 
 		s3Client.createBucket(newBucketName);
 		

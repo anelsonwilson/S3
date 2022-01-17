@@ -32,7 +32,7 @@ public class S3JavaSDKExample {
         // BucketUtils.deleteAllBuckets(s3Client);
 
 
-        String newBucketName = "nelson" + System.currentTimeMillis();
+        String newBucketName = "swl_" + System.currentTimeMillis();
 
 
         s3Client.createBucket(newBucketName);
@@ -89,7 +89,7 @@ public class S3JavaSDKExample {
 
 
 
-        String newBucketName = "nelson" + System.currentTimeMillis();
+        String newBucketName = "swl_" + System.currentTimeMillis();
         s3Client.createBucket(newBucketName);
 
         String policy = BucketUtils.readFileFromResources("encrypted-folder-policy.txt").replace("bucketname",newBucketName);

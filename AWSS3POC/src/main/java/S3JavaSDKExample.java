@@ -8,9 +8,7 @@ import com.amazonaws.services.s3.model.PutObjectResult;
 
 import java.io.File;
 
-/**
- * Created by nelson.
- */
+
 public class S3JavaSDKExample {
 
 

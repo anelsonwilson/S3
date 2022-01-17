@@ -11,10 +11,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Iterator;
 
-/**
- * Created by mattua on 23/07/2016.
- */
-
 
     public class BucketUtils {
 

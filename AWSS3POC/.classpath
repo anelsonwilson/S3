@@ -23,7 +23,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.launching.macosx.MacOSXType/JRE [17.0.1]"/>
-	<classpathentry kind="lib" path="/Library/Java/JavaVirtualMachines/jdk-17.0.1.jdk"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/zulu_jdk11"/>
+	<classpathentry kind="lib" path="C:/swl/seu/zulu_jdk11"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

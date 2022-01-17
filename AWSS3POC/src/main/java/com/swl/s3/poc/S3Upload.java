@@ -4,7 +4,6 @@ import java.io.File;
 
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3Client;
-import com.amazonaws.services.s3.internal.BucketNameUtils;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.PutObjectResult;
 
@@ -15,7 +14,7 @@ public class S3Upload {
 
 	public static void main(String[] args) throws Exception {
 
-		System.out.print("boom");
+		System.out.println("boom");
 		// demoServerSideEncryptionNotResource();
 
 		try
@@ -24,7 +23,7 @@ public class S3Upload {
 		}
 		catch (Exception ex)
 		{
-			// deleting the created bbucket
+			// deleting the created bucket
 			BucketUtils.deleteBucket(newBucketName, s3Client);
 		}
 	}
@@ -42,7 +41,8 @@ public class S3Upload {
 		newBucketName = "nelson" + System.currentTimeMillis();
 
 		s3Client.createBucket(newBucketName);
-
+		
+		
 		 final String fileName = "/sometext.txt";
 		// final String fileName = "English
 		// Vinglish.2012.1080p.WEB-DL.AVC.AAC.ESub.DDR.mkv";
@@ -59,7 +59,7 @@ public class S3Upload {
 		}
 		
 		//creating an exception knowingly.
-		throw new Exception();
+		//throw new Exception();
 
 	}
 }

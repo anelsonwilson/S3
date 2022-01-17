@@ -76,7 +76,20 @@ import java.util.Iterator;
             }
         }
 
-    
+        public static String readFileFromResources(String fileName)
+                throws Exception
+        {
+
+            String path = S3Upload.class.getResource(fileName).toURI().getPath();
+
+            String osAppropriatePath = IS_WINDOWS ? path.substring(1) : path;
+
+
+            byte[] encoded = Files.readAllBytes(Paths.get(osAppropriatePath));
+
+
+            return new String(encoded);
+        }
 
 }
 

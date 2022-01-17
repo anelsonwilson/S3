@@ -9,7 +9,7 @@ import com.amazonaws.services.s3.model.PutObjectResult;
 import java.io.File;
 
 /**
- * Created by nelson on 06/06/2016.
+ * Created by nelson.
  */
 public class S3JavaSDKExample {
 

@@ -2,6 +2,8 @@ package com.swl.s3.poc;
 
 import java.io.File;
 
+import com.amazonaws.AmazonClientException;
+import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.PutObjectRequest;
@@ -21,11 +23,34 @@ public class S3Upload {
 		{
 			createAndPopulateSimpleBucket();
 		}
+		//This exception represents an error response from an AWS service.
+		catch (AmazonServiceException amazonServiceException)
+		{
+			// deleting the created bucket, if any
+			System.out.println("deleting the S3 bucket - if any, transaction roolback.");
+			BucketUtils.deleteBucket(newBucketName, s3Client);
+			amazonServiceException.printStackTrace();
+		}
+		//This exception is handled, if a caller tries to use a client to make a service call, but no network connection is present, an AmazonClientException will be 
+		//thrown to indicate that the client wasn't able to successfully make the service call, and no information from the service is available.
+		catch (AmazonClientException amazonClientException)
+		{
+			// deleting the created bucket, if any
+			System.out.println("No N/w present, unable to make call to AWS servie");
+			BucketUtils.deleteBucket(newBucketName, s3Client);
+			amazonClientException.printStackTrace();
+		}
+		//Naming standards of the Bucket name etc.
+		catch (IllegalArgumentException argumentException)
+		{
+			argumentException.printStackTrace();
+		}
 		catch (Exception ex)
 		{
 			// deleting the created bucket
 			System.out.println("deleting the S3 bucket, transaction roolback.");
 			BucketUtils.deleteBucket(newBucketName, s3Client);
+			ex.printStackTrace();
 		}
 	}
 

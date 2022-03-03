@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xmlns:aop="http://www.springframework.org/schema/aop"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
+    http://www.springframework.org/schema/aop   
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">  
+  
+<aop:aspectj-autoproxy />  
+  
+<bean id="s3UploadBA" class="com.swl.s3.poc.S3UploadBAImpl"></bean>  
+<bean id="trackAspect" class="com.swl.s3.poc.TrackOperation"></bean>  
+
+<aop:config>  
+  <aop:aspect id="myaspect" ref="trackAspect" >  
+     <!-- @Before -->  
+     <aop:pointcut id="pointCutBefore"   expression="execution(* com.swl.s3.poc.S3UploadBAImpl.*(..))" />  
+     <aop:before method="myadvice" pointcut-ref="pointCutBefore" />  
+     
+     <!-- @After -->  
+     <aop:pointcut id="pointCutAfter"    expression="execution(* com.swl.s3.poc.S3UploadBAImpl.*(..))" />  
+     <aop:after method="myadviceAfter" pointcut-ref="pointCutAfter" />  
+     
+     <!-- @AfterReturning -->  
+     <aop:pointcut id="pointCutAfterReturning"   expression="execution(* com.swl.s3.poc.S3UploadBAImpl.*(..))" />  
+     <aop:after-returning method="myadviceAfterReturning" returning="result" pointcut-ref="pointCutAfterReturning" />
+     
+     <!-- @Around -->  
+    <!--  <aop:pointcut id="pointCutAround"   expression="execution(* com.swl.s3.poc.S3UploadBAImpl.*(..))" />  
+     <aop:around method="myadviceAround" pointcut-ref="pointCutAround" /> -->
+     
+     <!-- @AfterThrowing -->  
+     <aop:pointcut id="pointCutAfterThrowing"    expression="execution(* com.swl.s3.poc.S3UploadBAImpl.*(..))" />  
+     <aop:after-throwing method="myadviceAfterThrowing" throwing="error" pointcut-ref="pointCutAfterThrowing" />  
+     
+  </aop:aspect>  
+</aop:config>  
+      
+</beans>  
